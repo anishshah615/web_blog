@@ -1,0 +1,5 @@
+User.create!(name: Faker::Name.name)
+User.create!(name: Faker::Name.name)
+User.create!(name: Faker::Name.name)
+User.create!(name: Faker::Name.name)
+User.create!(name: Faker::Name.name)

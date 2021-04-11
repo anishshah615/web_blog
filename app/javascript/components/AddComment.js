@@ -24,6 +24,7 @@ const AddComment = (props) => {
         'X-CSRF-TOKEN': document.querySelector('[name=csrf-token]').content
       }
     }).then(response => response.json()).then(data => props.history.push(`/comments/${data.id}`)).catch(error => console.log("error", error));
+    window.location.reload();
   }
 
   return(

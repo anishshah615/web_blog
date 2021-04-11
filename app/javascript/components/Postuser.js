@@ -7,22 +7,22 @@ const Posts = (props) => {
 
   useEffect(() => {
     const user_id = props.match.params.user_id
-    call_api(user_id)
+    get_posts(user_id)
     }, [])
     
 
   const handleClick = e => {
     props.history.push(`/users/${e["value"]}/posts`);
-    call_api(e["value"])
+    get_posts(e["value"])
   };
-  const call_api = user_id => {
+  const get_posts = user_id => {
     fetch(`/api/v1/users/${user_id}/posts`).then(response => response.json()).then(data => setPosts(data))
     .catch(error => console.log("error", error))
   }
 
   return(
     <div className="container">
-      <h2 className="text-center">List Posts</h2>
+      <h2 className="text-center">List selected Posts</h2>
       <Users history={props.history} handleClick= {handleClick} />
       <div className="row">      
         {posts.map(post => (

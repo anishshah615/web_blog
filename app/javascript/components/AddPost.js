@@ -36,7 +36,7 @@ const AddPost = (props) => {
         </div>
         <div className="form-group">
           <label className="form-label" htmlFor="content">content</label>
-          <input type="text" className="form-control" name="content" onChange={e => handleChange(e)} />
+          <input type="text_area" className="form-control" name="content" onChange={e => handleChange(e)} />
         </div>
         <div className="form-group">
           <input type="submit" className="btn btn-primary" title="Submit" />

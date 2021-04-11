@@ -2,13 +2,18 @@ Rails.application.routes.draw do
   root 'pages#index'
 
   namespace :api do
-    namespace :v1 do      
+    namespace :v1 do
       get '/users', to: "users#index"
       get '/users/:user_id/posts', to: "posts#get_posts"
+
       resources :posts do
-      	resources :comments
+      	resources :comments, :shallow => true
       end
-      
+
+      resources :comments do
+        resources :reactions
+      end
+
     end
   end
 

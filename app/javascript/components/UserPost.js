@@ -24,7 +24,7 @@ const UserPost = ({handleClick}) => {
        View Posts of
       </div>
       <div className="col-md-4">
-        <Dropdown options={user_list} onChange={(e) => handleClick(e)} placeholder="Select user" />
+        <Dropdown options={user_list} onChange={(e) => handleClick(e)}  placeholder="Select user" />
       </div>
     </div>
   )

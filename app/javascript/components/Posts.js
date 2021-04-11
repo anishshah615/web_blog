@@ -20,7 +20,7 @@ const Posts = (props) => {
 
   return(
     <div className="container">
-      <h2 className="text-center">List Posts</h2>
+         <h2 className="text-center">List Posts</h2>
       <Users history={props.history} handleClick={handleClick} />
       <div className="row">
         {posts.map(post => (
@@ -37,6 +37,7 @@ const Posts = (props) => {
           </div>
         ))}
       </div>
+      <Link to={`/posts/new`} className="">Create New </Link>
     </div>
   )
 }

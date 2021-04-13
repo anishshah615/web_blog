@@ -5,9 +5,8 @@ module API
       before_action :find_post, except: [:show, :destroy]
 
       def index
-         @comments = @post.comments
+         @comments = @post.comments.order(created_at: :desc)
         render json: @comments
-
       end
 
       def create

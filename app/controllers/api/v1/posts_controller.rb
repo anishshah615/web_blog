@@ -5,7 +5,7 @@ module API
       before_action :find_user, except: [:index, :show]
 
       def index
-        @posts = Post.all
+        @posts = Post.all.order(created_at: :desc)
         render json: @posts
       end
 
@@ -19,7 +19,7 @@ module API
       end
 
       def show
-        render json: @post
+        render :json => @post.to_json(:include => { :user => { :only => :name } })
       end
 
       def update
@@ -35,18 +35,18 @@ module API
         head :no_content
       end
 
-      def get_posts        
-        @posts = @user.posts        
+      def get_posts
+        @posts = @user.posts
         render json: @posts
       end
 
       private
-      
+
       def find_post
         @post = Post.find(params[:id])
       end
 
-      def find_user        
+      def find_user
         @user = User.find(params[:user_id].to_i)
       end
 

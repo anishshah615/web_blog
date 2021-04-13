@@ -29,14 +29,18 @@ const Post = (props) => {
         <div className="col-md-4">
           <div className="card">
             <div className="card-header">
-              {console.log("post", post)}{post.title}
+              {post.title}
             </div>
             <div className="card-body">
               <p className="card-text">{post.content}</p>
             </div>
           </div>
         </div>
+        {post.user && <span style={{float: "Left"}}>
+       By <small>{post.user.name}</small>
+      </span>}
       </div>
+
       <Link to="/posts">Go Back</Link>
       {
         localStorage.getItem('user') == post["user_id"]  &&

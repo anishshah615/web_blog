@@ -57,10 +57,14 @@ const Comments = (props) => {
             <div className="card">
               <div className="card-header">
                 {comment.comment}
+
                 { <CommentReactions reaction={comment.reactions}/> }
               </div>
+              {comment.user && <span style={{float: "Left"}}>
+       By <small>{comment.user.name}</small>
+      </span>}
               <div>
-              {DEFAULT_EMOJI_OPTIONS.map(emoji=><Reaction handleClick= {handleClick} comment = {comment} emoji={emoji.emoji} 
+              {DEFAULT_EMOJI_OPTIONS.map(emoji=><Reaction handleClick= {handleClick} comment = {comment} emoji={emoji.emoji}
               label={emoji.label} className=""/>)}
                 <span style={{float: "right"}}>
                 {

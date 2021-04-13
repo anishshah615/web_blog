@@ -6,7 +6,7 @@ class Comment < ApplicationRecord
   validates :comment, presence: true
 
   def as_json(options={})
-    super(:include => :reactions )
+    super(:include => [:user, :reactions] )
   end
 
 end

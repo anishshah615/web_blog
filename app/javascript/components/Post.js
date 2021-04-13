@@ -4,7 +4,7 @@ import AddComment from "./AddComment";
 import Comments from "./Comments";
 
 const Post = (props) => {
-  
+
   const [post, setPost] = useState({})
 
   useEffect(() => {
@@ -40,10 +40,10 @@ const Post = (props) => {
       <Link to="/posts">Go Back</Link>
       {
         localStorage.getItem('user') == post["user_id"]  &&
-        <button onClick={handleDelete} className="btn btn-danger" style={{marginTop: 10, marginRight: 10}}>Delete</button>
+        <button onClick={handleDelete} className="btn btn-danger" style={{marginTop: 0, marginRight: 10}}>Delete</button>
       }
       {
-        localStorage.getItem('user') == post["user_id"]  && 
+        localStorage.getItem('user') == post["user_id"]  &&
         <Link to={`/posts/${props.match.params.id}/edit`} className="btn btn-secondary">Edit</Link>
       }
       <AddComment post_id={props.match.params.id} />

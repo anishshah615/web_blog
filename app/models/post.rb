@@ -5,4 +5,5 @@ class Post < ApplicationRecord
 
   validates :title, presence: true
   validates :content, presence: true
+  validate :user, presence: true
 end
